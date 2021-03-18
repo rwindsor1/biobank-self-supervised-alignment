@@ -1,0 +1,18 @@
+10 th decile
+.50
+.55
+/users/rhydian/anaconda3/envs/torch_env/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /opt/conda/conda-bld/pytorch_1603729006826/work/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+  0%|          | 0/810 [00:00<?, ?it/s]QStandardPaths: XDG_RUNTIME_DIR points to non-existing path '/run/user/3129', please create it with 0700 permissions.
+qt.qpa.screen: QXcbConnection: Could not connect to display localhost:11.0
+Could not connect to any X display.
+/users/rhydian/anaconda3/envs/torch_env/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /opt/conda/conda-bld/pytorch_1603729006826/work/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+  0%|          | 0/101 [00:00<?, ?it/s]QStandardPaths: XDG_RUNTIME_DIR points to non-existing path '/run/user/3129', please create it with 0700 permissions.
+qt.qpa.screen: QXcbConnection: Could not connect to display localhost:11.0
+Could not connect to any X display.
+/users/rhydian/anaconda3/envs/torch_env/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /opt/conda/conda-bld/pytorch_1603729006826/work/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+  0%|          | 0/101 [00:00<?, ?it/s]QStandardPaths: XDG_RUNTIME_DIR points to non-existing path '/run/user/3129', please create it with 0700 permissions.
+qt.qpa.screen: QXcbConnection: Could not connect to display localhost:11.0
+Could not connect to any X display.

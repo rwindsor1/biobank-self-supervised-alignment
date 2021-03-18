@@ -34,6 +34,17 @@ def pairwise_out_loss(outs):
     return loss
 
 
+class SSECLoss(torch.nn.Module):
+    def __init__(self, temperature=0.1):
+        super(SSECLoss, self).__init__()
+        self.temperature = temperature
+
+    def forward(self,similarities):
+        ax1_softmaxes = F.softmax(similarities/self.temperature,dim=1)
+        ax2_softmaxes = F.softmax(similarities/self.temperature,dim=0)
+        softmax_scores = torch.cat((-ax1_softmaxes.diag().log(),-ax2_softmaxes.diag().log()))
+        loss = softmax_scores.mean()
+        return loss
 
 
 if __name__ == '__main__':
@@ -42,5 +53,4 @@ if __name__ == '__main__':
     val1 = torch.randn((5,2))
     val2 = torch.randn((5,2))
     criterion(val1,val2)
-
 

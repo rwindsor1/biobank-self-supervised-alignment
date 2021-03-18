@@ -102,7 +102,7 @@ class MRISlicesSegmentationDataset(Dataset):
             output_mri_shape = (501,224)
             if dxa_volume.shape[0] != output_dxa_shape[0] or dxa_volume.shape[1] != output_dxa_shape[1]:
                 diff = (output_dxa_shape[0] - dxa_volume.shape[0],output_dxa_shape[1] - dxa_volume.shape[1])
-                dxa_volume =       F.pad(dxa_volume,     [int(np.floor(diff[1]/2)),int(np.ceil(diff[1]/2)),int(np.floor(diff[0]/2)),int(np.ceil(diff[0]/2))])
+                dxa_volume = F.pad(dxa_volume, [int(np.floor(diff[1]/2)),int(np.ceil(diff[1]/2)),int(np.floor(diff[0]/2)),int(np.ceil(diff[0]/2))])
             if dxa_segmentation.shape[1] != output_dxa_shape[0] or dxa_segmentation.shape[2] != output_dxa_shape[1]:
                 dxa_segmentation = F.pad(dxa_segmentation,[int(np.floor(diff[1]/2)),int(np.ceil(diff[1]/2)),int(np.floor(diff[0]/2)),int(np.ceil(diff[0]/2))])
             if mri_volume.shape[0] != output_mri_shape[0] or mri_volume.shape[1] != output_mri_shape[1]:
@@ -127,6 +127,7 @@ class MRISlicesSegmentationDataset(Dataset):
             return {'mri_vol': mri_volume[None].float(), 'dxa_vol': dxa_volume[None].float(), 
                     'mri_id':  scan_row['mri_filename'], 'dxa_id':scan_row['dxa_filename'],
                     'dxa_segmentation': dxa_segmentation}
+
         except Exception as e:
             rand_idx = np.random.randint(self.__len__())
             return self.__getitem__(rand_idx)

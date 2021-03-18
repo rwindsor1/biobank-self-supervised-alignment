@@ -14,7 +14,7 @@ class BothDXADataset(Dataset):
                  mri_root='SynthesisedMRISlices',
                  dxa_root='dxa',
                  scan_lists_path='/users/rhydian/self-supervised-project/scan_lists',
-                 augment=False, blanking_augment=False):
+                 augment=False, blanking_augment=False, no_rotate_augment=Truec):
         super(BothDXADataset, self).__init__()
         assert set_type in ['train', 'val', 'test', 'all']
         if set_type == 'all':
@@ -27,6 +27,7 @@ class BothDXADataset(Dataset):
         if set_type == 'all': raise NotImplementedError()
         self.augment = augment
         self.blanking_augment = blanking_augment
+        self.no_rotate_augment = no_rotate_augment
 
 
     def __getitem__(self, idx):
@@ -48,8 +49,8 @@ class BothDXADataset(Dataset):
         output_mri_shape = (1,501,224)
 
         # parameters for augmentation
-        ROT_LOW = -10
-        ROT_HIGH = 10
+        ROT_LOW = 10
+        ROT_HIGH =10
         TRANS_LOW = -4
         TRANS_HIGH = 5
         ZOOM_LOW = 0.9
@@ -70,6 +71,9 @@ class BothDXADataset(Dataset):
             mri_brightness = 1 + 2*BRIGHTNESS_VAR*(np.random.random()-0.5)
             dxa_contrast   = 1 + 2*CONTRAST_VAR*(np.random.random()-0.5)
             mri_contrast   = 1 + 2*CONTRAST_VAR*(np.random.random()-0.5)
+
+        if self.no_rotate_augment:
+            dxa_rot=0; mri_rot=0
 
         else:
             mri_rot = 0; dxa_rot = 0;
@@ -109,7 +113,7 @@ class BothDXADataset(Dataset):
             rand_h_2     = int(np.ceil(added_height - rand_h_1))
             rand_w_2     = int(np.ceil(added_width - rand_w_1))
             mri_img      = F.pad(mri_img, [rand_w_1, rand_w_2, rand_h_1, rand_h_2]) 
-            mri_img      = F.interpolate(mri_img[None], output_mri_shape)[0]
+            mri_img      = F.interpolate(mri_img[None], output_mri_shape,align_corners=False)[0]
 
         if dxa_zoom <= 1:
             dxa_img = TF.resized_crop(dxa_img, int(np.random.random()*(1-dxa_zoom)*dxa_img.shape[-2]),
@@ -124,7 +128,7 @@ class BothDXADataset(Dataset):
             rand_h_2     = int(np.ceil(added_height - rand_h_1))
             rand_w_2     = int(np.ceil(added_width - rand_w_1))
             dxa_img      = F.pad(dxa_img, [rand_w_1, rand_w_2, rand_h_1, rand_h_2]) 
-            dxa_img      = F.interpolate(dxa_img[None], output_dxa_shape)[0]
+            dxa_img      = F.interpolate(dxa_img[None], output_dxa_shape,align_corners=False)[0]
 
         if self.blanking_augment:
                 if np.random.random() > 0.25:

@@ -1,3 +1,8 @@
+import random
+import string
+import os
+
+
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
@@ -183,3 +188,58 @@ def triplet_loss_dot_similarity(embeds_a, embeds_p, embeds_n, MARGIN):
     
 
 
+def make_segmentation_grid(dxa_vol, out_segmentation):
+    grid = make_grid(torch.cat([.5*dxa_vol[:,0].unsqueeze(1)]*3, dim=1),nrow=5)
+    for idx in range(out_segmentation.shape[1]):
+        if idx == 0:
+            part_grid = make_grid(torch.cat([out_segmentation[:,idx,None], 
+                        torch.zeros_like(out_segmentation[:,idx,None]), 
+                        torch.zeros_like(out_segmentation[:,idx,None])],dim=1),
+                        nrow=5)     
+        elif idx == 1:
+            part_grid = make_grid(torch.cat([
+                        torch.zeros_like(out_segmentation[:,idx,None]), 
+                        out_segmentation[:,idx,None], 
+                        torch.zeros_like(out_segmentation[:,idx,None])
+                        ],dim=1),
+                        nrow=5)     
+        elif idx == 2:
+            part_grid = make_grid(torch.cat([
+                        torch.zeros_like(out_segmentation[:,idx,None]), 
+                        torch.zeros_like(out_segmentation[:,idx,None]),
+                        out_segmentation[:,idx,None]
+                        ],dim=1),
+                        nrow=5)     
+        elif idx == 3:
+            part_grid = make_grid(torch.cat([
+                        torch.zeros_like(out_segmentation[:,idx,None]), 
+                        0.5*out_segmentation[:,idx,None],
+                        0.5*out_segmentation[:,idx,None]
+                        ],dim=1),
+                        nrow=5)     
+        elif idx == 4:
+            part_grid = make_grid(torch.cat([
+                        0.5*out_segmentation[:,idx,None],
+                        torch.zeros_like(out_segmentation[:,idx,None]), 
+                        0.5*out_segmentation[:,idx,None]
+                        ],dim=1),
+                        nrow=5)     
+        elif idx == 5:
+            part_grid = make_grid(torch.cat([
+                        0.5*out_segmentation[:,idx,None],
+                        0.5*out_segmentation[:,idx,None],
+                        torch.zeros_like(out_segmentation[:,idx,None])
+                        ],dim=1),
+                        nrow=5)     
+                        
+        grid += part_grid
+    return grid
+
+def im_show():
+    # boilerplate to show current plt image as imgcat
+    letters = string.ascii_letters
+    temp_img_name = letters+'.png'
+    ''.join(random.choice(letters) for i in range(10))
+    plt.savefig(temp_img_name)
+    os.system('imgcat ' + temp_img_name)
+    os.remove(temp_img_name)
