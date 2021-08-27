@@ -1,86 +1,0 @@
-1 th decile
-.05
-.10
-/users/rhydian/anaconda3/envs/torch_env/lib/python3.7/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /opt/conda/conda-bld/pytorch_1603729006826/work/c10/cuda/CUDAFunctions.cpp:100.)
-  return torch._C._cuda_getDeviceCount() > 0
-  0%|          | 0/811 [00:00<?, ?it/s]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  0%|          | 1/811 [00:13<3:03:34, 13.60s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  0%|          | 2/811 [00:16<2:20:37, 10.43s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  0%|          | 3/811 [00:19<1:48:51,  8.08s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  0%|          | 4/811 [00:22<1:27:54,  6.54s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 5/811 [00:25<1:14:10,  5.52s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 6/811 [00:29<1:08:50,  5.13s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 7/811 [00:32<1:01:22,  4.58s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 8/811 [00:35<54:27,  4.07s/it]  Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 9/811 [00:38<49:29,  3.70s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|          | 10/811 [00:41<46:44,  3.50s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|▏         | 11/811 [00:44<43:20,  3.25s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  1%|▏         | 12/811 [00:52<1:05:06,  4.89s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 13/811 [00:55<56:23,  4.24s/it]  Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 14/811 [00:58<49:51,  3.75s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 15/811 [01:05<1:02:35,  4.72s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 16/811 [01:07<53:54,  4.07s/it]  Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 17/811 [01:10<48:42,  3.68s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 18/811 [01:23<1:23:40,  6.33s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 19/811 [01:25<1:08:32,  5.19s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  2%|▏         | 20/811 [01:28<57:29,  4.36s/it]  Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 21/811 [01:30<50:29,  3.83s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 22/811 [01:33<46:12,  3.51s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 23/811 [01:35<42:01,  3.20s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 24/811 [01:38<40:00,  3.05s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 25/811 [01:41<37:40,  2.88s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 26/811 [01:44<38:57,  2.98s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 27/811 [01:46<37:43,  2.89s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  3%|▎         | 28/811 [01:49<36:15,  2.78s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▎         | 29/811 [01:52<35:53,  2.75s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▎         | 30/811 [01:54<35:11,  2.70s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 31/811 [01:57<35:01,  2.69s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 32/811 [02:00<35:49,  2.76s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 33/811 [02:02<34:34,  2.67s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 34/811 [02:05<34:23,  2.66s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 35/811 [02:08<34:09,  2.64s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  4%|▍         | 36/811 [02:10<33:48,  2.62s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▍         | 37/811 [02:13<33:46,  2.62s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▍         | 38/811 [02:15<33:14,  2.58s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▍         | 39/811 [02:18<33:57,  2.64s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▍         | 40/811 [02:21<33:55,  2.64s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▌         | 41/811 [02:23<34:30,  2.69s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▌         | 42/811 [02:29<43:41,  3.41s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▌         | 43/811 [02:31<40:35,  3.17s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  5%|▌         | 44/811 [02:34<37:55,  2.97s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 45/811 [02:36<36:44,  2.88s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 46/811 [02:39<35:23,  2.78s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 47/811 [02:42<36:18,  2.85s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 48/811 [02:45<35:49,  2.82s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 49/811 [02:47<35:23,  2.79s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▌         | 50/811 [02:50<35:06,  2.77s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▋         | 51/811 [02:53<34:18,  2.71s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  6%|▋         | 52/811 [02:55<33:53,  2.68s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 53/811 [03:00<41:04,  3.25s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 54/811 [03:02<38:37,  3.06s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 55/811 [03:05<36:54,  2.93s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 56/811 [03:08<36:19,  2.89s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 57/811 [03:20<1:12:44,  5.79s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 58/811 [03:23<1:00:28,  4.82s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 59/811 [03:26<52:04,  4.15s/it]  Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  7%|▋         | 60/811 [03:28<46:07,  3.69s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 61/811 [03:31<42:16,  3.38s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 62/811 [03:33<39:09,  3.14s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 63/811 [03:41<54:19,  4.36s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 64/811 [03:43<47:46,  3.84s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 65/811 [03:46<43:54,  3.53s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 66/811 [03:49<40:26,  3.26s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 67/811 [03:51<37:31,  3.03s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  8%|▊         | 68/811 [03:54<36:00,  2.91s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▊         | 69/811 [03:57<36:31,  2.95s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▊         | 70/811 [03:59<35:13,  2.85s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 71/811 [04:03<35:52,  2.91s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 72/811 [04:05<35:05,  2.85s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 73/811 [04:08<35:21,  2.87s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 74/811 [04:12<37:05,  3.02s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 75/811 [04:15<38:31,  3.14s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 76/811 [04:18<36:29,  2.98s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-  9%|▉         | 77/811 [04:20<35:45,  2.92s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
- 10%|▉         | 78/811 [04:23<34:58,  2.86s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
- 10%|▉         | 79/811 [04:26<34:46,  2.85s/it]Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
- 10%|▉         | 80/811 [04:28<33:37,  2.76s/it]slurmstepd: error: *** JOB 258259 ON cnode212 CANCELLED AT 2021-03-01T23:23:43 ***

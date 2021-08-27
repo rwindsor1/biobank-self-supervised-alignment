@@ -1,5 +1,0 @@
-8 th decile
-Traceback (most recent call last):
-  File "save_half_precis_3d_dataset.py", line 25, in <module>
-    START_IDX = int(np.floor(num_scans*(args.frac)/args.num_fracs))
-NameError: name 'np' is not defined

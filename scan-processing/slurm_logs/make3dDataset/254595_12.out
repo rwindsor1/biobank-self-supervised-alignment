@@ -1,5 +1,0 @@
-12 th decile
-Traceback (most recent call last):
-  File "save_half_precis_3d_dataset.py", line 21, in <module>
-    os.mkdir(output_path)
-FileExistsError: [Errno 17] File exists: '/scratch/shared/beegfs/rhydian/UKBiobank/Cleaned3DMRIsHalfPrecision/train'
