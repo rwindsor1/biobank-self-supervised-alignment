@@ -3,3 +3,6 @@
 *.jpg
 *.pkl
 *.pyc
+.vscode
+.ipynb_checkpoints
+images/dev

@@ -22,3 +22,11 @@ bibtex:
 }
 ```
 
+# Changes from paper
+
+As we used raw DXA scans from the Biobank as opposed to those that can downloaded, the code requires some
+adaption to work with the publically available data. These changes are itemised below:
+
+- The size of DXA scans fed to the network is changed to (1000,300) as opposed to (800,300) used in the paper. This slightly increases batch GPU usage but ensures the entire body is shown in the image for more patients. 
+
+# To run this code
