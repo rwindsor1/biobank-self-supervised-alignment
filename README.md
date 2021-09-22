@@ -48,7 +48,7 @@ To view the results of the registration methods please see the notebook at `note
 ## Libraries Used
 - Code is tested using python 3.7
 - This deep learning aspect of this project is implemented in vanilla pytorch (v.1.7). 
-- Experiment logging is done using [sacred](https://sacred.readthedocs.io/en/stable/quickstart.html)(v.0.8.1). 
+- Experiment logging is done using [sacred](https://sacred.readthedocs.io/en/stable/quickstart.html)(v.0.8.2). 
 - For visualisation of results [omniboard](https://github.com/vivekratnavel/omniboard) is recommended.
 # Changes from paper
 
