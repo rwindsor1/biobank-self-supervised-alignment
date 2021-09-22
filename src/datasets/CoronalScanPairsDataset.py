@@ -1,12 +1,14 @@
+from genericpath import isfile
 import sys
 import os
 import glob
-from os.path import dirname,abspath,join, basename
+from os.path import dirname,abspath,join, basename, isfile
 from numpy.lib.npyio import savez_compressed
 import torch
 import pickle
 import random
 import numpy as np
+import pandas as pd
 from torch.utils.data import Dataset
 import torchvision.transforms as t
 import torch.nn.functional as F
@@ -20,7 +22,7 @@ def get_seqs(scan_obj, seq_names):
     return torch.cat(out_img,dim=1)
 
 def resample_scans(scan_obj, resolution=2,transpose=False):
-    scaling_factors = resolution/np.array(scan_obj['pixel_spacing'])
+    scaling_factors = np.array(scan_obj['pixel_spacing'])/resolution
     for seq_name in scan_obj.keys():
         if seq_name == 'pixel_spacing': scan_obj['pixel_spacing'] = [resolution]*2 
         else:
@@ -28,6 +30,7 @@ def resample_scans(scan_obj, resolution=2,transpose=False):
             scan_obj[seq_name] = F.interpolate(scan,
                                                scale_factor=list(scaling_factors),
                                                recompute_scale_factor=False,
+                                               align_corners=False,
                                                mode='bicubic')
             if transpose:
                 scan_obj[seq_name] = scan_obj[seq_name].permute(0,1,3,2)
@@ -54,7 +57,8 @@ class CoronalScanPairsDataset(Dataset):
                  dxa_seqs : list = ['bone','tissue'],
                  mri_dirname : str = 'mri-mid-corr-slices',
                  dxa_dirname : str = 'dxas-processed',
-                 reload_if_fail : bool = False):
+                 skip_failed_samples : bool = False,
+                 pad_scans = True):
         super().__init__()
         assert set_type in ['train', 'val', 'test', 'all']
         self.set_type = set_type
@@ -63,6 +67,7 @@ class CoronalScanPairsDataset(Dataset):
         self.dxa_root = join(root, dxa_dirname)
         self.mri_seqs = mri_seqs
         self.dxa_seqs = dxa_seqs
+        self.pad_scans = pad_scans
 
         patients = []
 
@@ -81,21 +86,36 @@ class CoronalScanPairsDataset(Dataset):
         intersection_subjects = sorted(list(intersection_subjects))
 
         # now we have subjects, construct scan pairs
-        self.pairs = []
-        for subject in intersection_subjects:
-            subject_dxa_scans = [x for x in all_dxas if subject in x]
-            subject_mri_scans = [x for x in all_mris if subject in x]
-            self.pairs.append([subject_dxa_scans[0],subject_mri_scans[0]])
+        dxa_df = pd.DataFrame(all_dxas,columns=['dxa_scan'])
+        dxa_df['subject'] = dxa_df['dxa_scan'].apply(lambda x: x.split('_')[0])
+        mri_df = pd.DataFrame(all_mris,columns=['mri_scan'])
+        mri_df['subject'] = mri_df['mri_scan'].apply(lambda x: x.split('_')[0])
+        all_subjects_df = dxa_df.merge(mri_df)
+        all_subjects_df = all_subjects_df[all_subjects_df['subject'].isin(intersection_subjects)]
+        self.pairs =list(map(list,zip(all_subjects_df['dxa_scan'].tolist(),all_subjects_df['mri_scan'].tolist())))
 
         self.augment = augment
+        self.skip_failed_samples = skip_failed_samples
 
     def __len__(self):
-        return len(self.scans_df)
+        return len(self.pairs)
 
     def __getitem__(self, idx):
         dxa_path, mri_filename = self.pairs[idx]
-        dxa_fp = glob.glob(os.path.join(self.dxa_root,dxa_path,'*.pkl'))[0]
+        dxa_fp = os.path.join(self.dxa_root,dxa_path,f'{dxa_path}.pkl')
         mri_fp = os.path.join(self.mri_root, mri_filename)
+
+        if not(os.path.isfile(dxa_fp)):
+            if self.skip_failed_samples: 
+                return self.__getitem__(np.random.randint(self.__len__()))
+            else:
+                raise FileNotFoundError(f'Could not find file at {dxa_fp}')
+
+        if not(os.path.isfile(mri_fp)):
+            if self.skip_failed_samples: 
+                return self.__getitem__(np.random.randint(self.__len__()))
+            else:
+                raise FileNotFoundError(f'Could not find file at {mri_fp}')
 
         with open(dxa_fp,'rb') as f:
             dxa_scan = pickle.load(f)
@@ -113,7 +133,6 @@ class CoronalScanPairsDataset(Dataset):
         mri_scan['pixel_spacing'] = np.array(mri_scan['pixel_spacing'])[[0,2]]
 
         # resample both scans to 2x2 mm
-        dxa_scan['pixel_spacing'] = [2,2]
         mri_scan=resample_scans(mri_scan,transpose=True)
         dxa_scan=resample_scans(dxa_scan,transpose=False)
 
@@ -163,11 +182,12 @@ class CoronalScanPairsDataset(Dataset):
         dxa_img  = TF.adjust_gamma(TF.adjust_brightness(dxa_img, dxa_brightness), dxa_gamma, gain=1)
 
         output_dxa_shape = (2,1000,300)
-        output_mri_shape = (2,501,224)
+        output_mri_shape = (2,700,224)
 
         # crop to correct size
-        mri_img = pad_to_size(mri_img, output_mri_shape)
-        dxa_img = pad_to_size(dxa_img, output_dxa_shape)
+        if self.pad_scans:
+            mri_img = pad_to_size(mri_img, output_mri_shape)
+            dxa_img = pad_to_size(dxa_img, output_dxa_shape)
 
 
 

@@ -1,1 +1,1 @@
-from CoronalScanPairsDataset import CoronalScanPairsDataset 
+from .CoronalScanPairsDataset import CoronalScanPairsDataset 

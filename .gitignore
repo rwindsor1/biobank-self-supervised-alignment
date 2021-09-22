@@ -6,3 +6,4 @@
 .vscode
 .ipynb_checkpoints
 images/dev
+model_weights/*
