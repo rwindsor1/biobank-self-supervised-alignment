@@ -41,7 +41,7 @@ To view the results of the registration methods please see the notebook at `note
 - [x] Correspondance-matching registration methods
 - [ ] Regressor Network training and evaluation code
 - [ ] Cross modal segmentation
-
+- [ ] Option to train with larger models + at higher spatial embedding resolutions
 
 
 
