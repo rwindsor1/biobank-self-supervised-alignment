@@ -66,5 +66,4 @@ adaption to work with the publically available data. These changes are itemised 
 - We add an additional augmentation using training which selects nearby slices to the mid-coronal slice instead of
   the mid-coronal slice itself.
 
-## Still to be added
 
